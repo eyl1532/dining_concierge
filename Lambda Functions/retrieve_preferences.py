@@ -189,7 +189,7 @@ def suggest_restaurant(intent_request):
 
     # Create SQS client
     sqs = boto3.client('sqs')
-    queue_url = 'https://sqs.us-east-1.amazonaws.com/433732348145/myQueue'
+    queue_url = ''  # SQS QUEUE URL
 
     # Send message to SQS queue
     response = sqs.send_message(

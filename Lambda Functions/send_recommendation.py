@@ -17,7 +17,7 @@ def elastic_search(cuisine):
     service = 'es'
     awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
 
-    host = 'search-restaurants-3o36qc56ks6wx2a727x7zhzxyi.us-east-2.es.amazonaws.com'
+    host = ''  # Elasticsearch URL
     es = Elasticsearch(hosts=[{"host": host, 'port': 443}],
                        http_auth=awsauth,
                        use_ssl=True,
@@ -78,7 +78,7 @@ def extract_from_sqs():
     phone_number = None
 
     sqs = boto3.client('sqs')
-    queue_url = 'https://sqs.us-east-1.amazonaws.com/433732348145/myQueue'
+    queue_url = ''   # SQS QUEUE URL
     response = sqs.receive_message(
         QueueUrl=queue_url,
         AttributeNames=[
